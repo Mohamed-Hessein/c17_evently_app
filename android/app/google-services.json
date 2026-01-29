@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550439817361",
+    "project_id": "eventle-app-c-17-62832",
+    "storage_bucket": "eventle-app-c-17-62832.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550439817361:android:f59e98fae0d9613cd6af30",
+        "android_client_info": {
+          "package_name": "com.example.eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq3etjtgrM5K84_-2A0MTYidd0tqkEBFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
