@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/core/app_colors.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/core/stylesApp.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/profle.dart';
@@ -60,17 +59,5 @@ bottomNavigationBar: BottomNavigationBar(
  body:screens[selectedIndex] ,
           ),
     );
-=======
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-static const routeName = 'home';
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
->>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
   }
 }

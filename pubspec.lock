@@ -65,7 +65,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.2"
-<<<<<<< HEAD
   cloud_firestore:
     dependency: "direct main"
     description:
@@ -90,8 +89,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.2"
-=======
->>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
   collection:
     dependency: transitive
     description:
@@ -286,7 +283,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.7"
-<<<<<<< HEAD
   flutter_slidable:
     dependency: "direct main"
     description:
@@ -295,8 +291,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.3"
-=======
->>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
   flutter_svg:
     dependency: "direct main"
     description:
