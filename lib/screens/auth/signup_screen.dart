@@ -19,9 +19,14 @@ TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
 
+=======
+    return Scaffold(
+      backgroundColor: Colors.white,
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
 
       body: Padding(
         padding: const EdgeInsets.symmetric( horizontal: 17),
@@ -43,7 +48,11 @@ TextEditingController emailController = TextEditingController();
               
                   Align(
                       alignment: Alignment.centerLeft,
+<<<<<<< HEAD
                       child: Text('Create your account',style: Theme.of(context).textTheme.titleLarge,))
+=======
+                      child: Text('Create your account',style: StylesApp.style24BlueBold,))
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
               
                   ,
               
@@ -72,7 +81,10 @@ TextEditingController emailController = TextEditingController();
               
                   },isPass: true,hintText: 'Enter your PassWord',image: 'assets/images/lock.png',controller: passWordController,),
                  SizedBox(height: 16,), CustomTextFeild(
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
                     valdaitor: (value){
                       if(value!.isEmpty  || value == null){
               
@@ -87,7 +99,11 @@ TextEditingController emailController = TextEditingController();
                   NextButton(text: 'Sign Up', onPressed: (){
               
                     if(globalKey.currentState!.validate()){
+<<<<<<< HEAD
                       FirebaseFunctions.signUp(emailController.text,nameController.text.trim(), passWordController.text, onError: (massge){
+=======
+                      FirebaseFunctions.signUp(emailController.text,nameController.text, passWordController.text, onError: (massge){
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
               
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(massge.toString())));
                       }, onSucess: (){
@@ -114,7 +130,11 @@ TextEditingController emailController = TextEditingController();
                       child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
               
                           elevation: 0,
+<<<<<<< HEAD
                           backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
+=======
+                          backgroundColor: Colors.white), child: Padding(
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
                         child: Row(children: [Text('Login with Google',style: StylesApp.style18Blue500,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
                       ))),

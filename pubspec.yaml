@@ -42,8 +42,11 @@ dependencies:
   provider: ^6.1.5+1
   flutter_svg: ^2.2.3
   firebase_auth: ^6.1.4
+<<<<<<< HEAD
   cloud_firestore: ^6.1.2
   flutter_slidable: ^4.0.3
+=======
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
 
 dev_dependencies:
   flutter_test:

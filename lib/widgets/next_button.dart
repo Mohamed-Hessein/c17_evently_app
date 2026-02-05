@@ -15,7 +15,11 @@ final Function() onPressed;
       child: ElevatedButton(
 
           style: ElevatedButton.styleFrom(backgroundColor: AppColors.blueApp,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)))
+<<<<<<< HEAD
           , onPressed: onPressed, child: Center(child: Text(text, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),))),
+=======
+          , onPressed: onPressed, child: Center(child: Text(text, style: StylesApp.style20WhiteBold,))),
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
     );
   }
 }

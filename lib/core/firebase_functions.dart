@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/Models/firebase_model.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/Models/user_model.dart';
+=======
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseFunctions {
@@ -11,12 +14,16 @@ class FirebaseFunctions {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: passWord,
+<<<<<<< HEAD
 
       );
       SetUser(UserModel(id: credential.user!.uid, email: email, name: name));
       onSucess();
 
 
+=======
+      );onSucess();
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -45,6 +52,7 @@ class FirebaseFunctions {
       }
     }
   }
+<<<<<<< HEAD
   static CollectionReference<FirebaseModel> createClollection(){
    return FirebaseFirestore.instance
     .collection('Tasks').withConverter(fromFirestore: (snapshot, _){
@@ -128,4 +136,6 @@ static Future<UserModel?> readUser()async{
  static logOut(){
    FirebaseAuth.instance.signOut();
  }
+=======
+>>>>>>> 3fff189fde13fa9ca2ac3ebbf602c1aad1538b92
 }
