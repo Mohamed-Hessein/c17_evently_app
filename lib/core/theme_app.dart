@@ -4,34 +4,65 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class ThemeApp {
   static final ThemeData lightTheme = ThemeData(
-      colorScheme: ColorScheme(brightness: Brightness.light, primary: Colors.white, onPrimary:  Colors.white, secondary: Colors.white, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFFF4F7FF), onSurface: Colors.white),
 
+      colorScheme: ColorScheme(brightness: Brightness.light, primary: AppColors.blueApp, onPrimary:  Colors.black, secondary: Colors.black, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFFF4F7FF), onSurface: Colors.white),
+bottomNavigationBarTheme: BottomNavigationBarThemeData(
+
+
+    selectedLabelStyle: TextStyle(fontSize: 12,color: Colors.black),unselectedLabelStyle: TextStyle(fontSize: 12,color: AppColors.blueApp) ),
 
   textTheme: TextTheme(bodyLarge: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.bold,color: Color(0xFF1C1C1C)),
       bodyMedium: StylesApp.style16Bold,
       bodySmall: StylesApp.style14Bold,
       labelMedium: StylesApp.style16BlueBold,displayLarge:StylesApp.style20WhiteBold
       ,
-      titleLarge: StylesApp.style20WhiteBold.copyWith(color: Colors.white),displayMedium: StylesApp.style24BlueBold,
+      titleLarge: StylesApp.style20WhiteBold.copyWith(color: Colors.black),displayMedium: StylesApp.style24BlueBold,
           labelSmall: StylesApp.style18Blue500,
       labelLarge: StylesApp.style14BlueBold),
-      iconTheme: IconThemeData(color: Colors.black));
+      iconTheme: IconThemeData(color: Colors.black) ,  inputDecorationTheme: InputDecorationTheme(fillColor: Colors.white,
+
+     enabledBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(20)),
+contentPadding: EdgeInsets.symmetric(vertical: 10),
+
+      border: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(20)),
+
+      focusedBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(20)),
+
+      errorBorder: OutlineInputBorder(borderSide: BorderSide.none,borderRadius: BorderRadius.circular(20)),
+
+      filled: true)
+  );
 
 
   static final ThemeData darkTheme = ThemeData(
-      colorScheme: ColorScheme(brightness: Brightness.dark, primary: AppColors.blueApp, onPrimary:   Colors.white, secondary: Colors.white, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFF000F30), onSurface: Color(0xFF1C1C1C)),
-
+      colorScheme: ColorScheme(brightness: Brightness.dark, primary: AppColors.blueApp, onPrimary:   Colors.white, secondary: Colors.white, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFF000F30), onSurface:  Colors.white ),
+appBarTheme: AppBarThemeData(titleTextStyle: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.white)
+  ),
 
       textTheme: TextTheme(bodyLarge: GoogleFonts.poppins(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white),
           bodyMedium:  GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.bold,color: Colors.white),
           bodySmall: StylesApp.style14Bold.copyWith(),
           labelMedium: StylesApp.style16BlueBold.copyWith(color: Colors.white),
           titleLarge: StylesApp.style20WhiteBold,displayMedium: StylesApp.style24BlueBold,
-          labelSmall: StylesApp.style18Blue500,
+          labelSmall: StylesApp.style18Blue500.copyWith(color: Colors.white),
           labelLarge: StylesApp.style14BlueBold),
       iconTheme: IconThemeData(color: AppColors.blueApp),
 
-  chipTheme: ChipThemeData(backgroundColor: Color(0xFF002D8F,))
+  chipTheme: ChipThemeData(backgroundColor: Color(0xFF002D8F,)),inputDecorationTheme: InputDecorationTheme(
+
+     contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 5),
+
+
+      fillColor:  Color(0xFF001440),
+
+      enabledBorder:  OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Color(0xff002D8F))),
+
+      border:  OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F)))
+  ,  focusedBorder:  OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F)))
+  , errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F)))
+  )
+
+
   );
 
 }

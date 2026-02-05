@@ -12,6 +12,7 @@ class ChipsProvider extends ChangeNotifier {
 
   List<FirebaseModel> tasks = [];
   StreamSubscription<QuerySnapshot<FirebaseModel>>? sub ;
+
 int selectedIndex = 0;
   changeChipsClick(int index){
     selectedIndex  = index ;
@@ -52,6 +53,10 @@ if(selectedIndex!=0){ data =  await   FirebaseFunctions.getEvents(catgory: image
     super.dispose();
   }
 
-
+  editEvent(FirebaseModel task)async {
+    var data = await FirebaseFunctions.upDate(task);
+    await getTasksStram();
+    notifyListeners();
+  }
 
 }

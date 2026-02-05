@@ -32,7 +32,7 @@ bool isCLickTwo =  false;
 
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [Image.asset('assets/images/lets_start.png'),
+          children: [ Image.asset( isDark? 'assets/images/intro_dark1.png':'assets/images/lets_start.png'),
 
           Text('letsGoTitle',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),textAlign: TextAlign.start,).tr(),
 

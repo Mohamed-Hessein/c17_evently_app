@@ -116,7 +116,7 @@ TextEditingController emailController = TextEditingController();
                           elevation: 0,
                           backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                        child: Row(children: [Text('Login with Google',style: StylesApp.style18Blue500,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
+                        child: Row(children: [Text('Login with Google',style: Theme.of(context).appBarTheme.titleTextStyle,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
                       ))),
                 ],),
             ),

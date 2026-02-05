@@ -27,6 +27,13 @@ PageViewModel(image:Image.asset('assets/images/intro2.png',height: 343,width: 34
 PageViewModel(image:Image.asset('assets/images/intro3.png',height: 343,width: 343,),titleWidget: Text('Connect with Friends & Share Moments',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),) )
 ];
 
+  late List<PageViewModel> pageListDark = [
+    PageViewModel(image: Image.asset('assets/images/intro_dark_2.png',height: 343,width: 343,),titleWidget: Text('Find Events That Inspire You',style:    Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Dive into a world of events crafted to fit your unique interests. Whether youre into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),)),
+
+    PageViewModel(image:Image.asset('assets/images/intro dark_3.png',height: 343,width: 343,),titleWidget: Text('Effortless Event Planning',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black )) )
+    ,
+    PageViewModel(image:Image.asset('assets/images/introdark_4.png',height: 343,width: 343,),titleWidget: Text('Connect with Friends & Share Moments',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),) )
+  ];
   @override
   Widget build(BuildContext context) {
      isDark = Theme.of(context).brightness == Brightness.dark;
@@ -42,9 +49,9 @@ PageViewModel(image:Image.asset('assets/images/intro3.png',height: 343,width: 34
 fadeOutSize: Size.zero,
       activeSize: Size.zero
     ),
-bodyPadding: EdgeInsets.only(top: 60),
+bodyPadding: EdgeInsets.only(top: 80),
       showFirstBackButton: false,
-      pages: pageList,
+      pages: isDark? pageListDark: pageList,
 showSkipButton: false,
       isProgress:  false,
       showBackButton: false,

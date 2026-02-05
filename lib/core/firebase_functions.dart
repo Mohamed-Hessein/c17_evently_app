@@ -93,7 +93,15 @@ if(catgory != null){
    var ref =collec.doc(task.id);
    ref.delete();
 
+
  }
+ static edit(FirebaseModel task){
+   var collec = createClollection();
+   var ref =collec.doc(task.id);
+   ref.update(task.tojson());
+
+ }
+
 static Stream<QuerySnapshot<FirebaseModel>>  getFavTasks(){var data;
  data = createClollection().where('uid',isEqualTo: FirebaseAuth.instance.currentUser!.uid).where('isFav', isEqualTo: true).snapshots();
 

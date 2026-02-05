@@ -27,7 +27,8 @@ List<String> chipsNames = ['All','Sport','Birthday','Book club'];
 List<Widget> screens = [EventScreen(),FavScreen(),Profle()];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
@@ -42,9 +43,10 @@ bottomNavigationBar: BottomNavigationBar(
     });
   },
   selectedIconTheme:IconThemeData(color: AppColors.blueApp) ,
+selectedLabelStyle:  TextStyle(fontSize: 12,color: AppColors.blueApp),
   currentIndex:selectedIndex ,
   items: [
-  BottomNavigationBarItem(icon:  ImageIcon(AssetImage('assets/images/home.png'),),label: 'Home'),
+  BottomNavigationBarItem(icon:  ImageIcon(AssetImage('assets/images/home.png'),),label: 'Home',),
   BottomNavigationBarItem(
 
       icon: selectedIndex ==1? ImageIcon(AssetImage('assets/images/fill_heart.png'),):ImageIcon(AssetImage('assets/images/heart.png'),),label: 'Favorite'),

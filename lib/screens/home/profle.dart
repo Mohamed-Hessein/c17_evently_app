@@ -12,8 +12,10 @@ class Profle extends StatelessWidget {
   const Profle({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    var theme = Provider.of<ThemeProvider>(context);
+  Widget build(BuildContext context) {final isDark = Theme.of(context).brightness == Brightness.dark;
+
+
+  var theme = Provider.of<ThemeProvider>(context);
 
     var user = Provider.of<AuthProvider>(context);
     if (user.userModel == null) {
@@ -41,41 +43,61 @@ class Profle extends StatelessWidget {
           GestureDetector(
             onTap: (){
               theme.changTheme(ThemeMode.dark);},
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text('Dark mode',style:  Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+            child: Container(
+              width: double.infinity,
+    decoration: BoxDecoration(
+            border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFf002D8F): Colors.white)),
+    color: isDark? Color(0xFF001440) : Colors.white,borderRadius: BorderRadius.circular(16)),
+    height: 48,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20.0,top: 10),
+                child: Text(textAlign: TextAlign.start,'Dark mode',style:  Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+              ),
             ),
           )
          ,SizedBox(height: 32,),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [    Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Text('Language',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+      Container(
+        height: 48,
+        decoration: BoxDecoration(
+            border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFf002D8F): Colors.white)),
+            color: isDark? Color(0xFF001440) : Colors.white,borderRadius: BorderRadius.circular(16)),
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [    Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text('Language',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+        ),
+        ImageIcon(AssetImage('assets/images/arrow-right.png'),size: 24,)
+
+        ],),
       ),
-      ImageIcon(AssetImage('assets/images/arrow-right.png'),size: 24,)
+      SizedBox(height: 32,),
+    Container(height: 48,
+      decoration: BoxDecoration(
+          border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFf002D8F): Colors.white)),
+          color: isDark? Color(0xFF001440) : Colors.white,borderRadius: BorderRadius.circular(16)),
+
+      child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [    Padding(
+      padding: const EdgeInsets.only(left: 20.0),
+      child: Text('Logout',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+      ),
+      GestureDetector(
+          onTap: (){
+            FirebaseFunctions.logOut();
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              LoginScreen.routeName,
+                  (route) => false,
+            );
+
+          },
+          child: ImageIcon(AssetImage('assets/images/logout.png'),color: Colors.red,size: 24,))
 
       ],),
-      SizedBox(height: 32,),
-    Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [    Padding(
-    padding: const EdgeInsets.only(left: 20.0),
-    child: Text('Logout',style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
-    ),
-    GestureDetector(
-        onTap: (){
-          FirebaseFunctions.logOut();
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            LoginScreen.routeName,
-                (route) => false,
-          );
-
-        },
-        child: ImageIcon(AssetImage('assets/images/logout.png'),color: Colors.red,size: 24,))
-
-    ],)
+    )
 
         ],),
     ),);

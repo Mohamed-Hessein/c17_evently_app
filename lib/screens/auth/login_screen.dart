@@ -63,7 +63,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                   },
             
                   isPass: false,hintText: 'Enter your email',image: 'assets/images/email.png',),
-            SizedBox(height: 16,),CustomTextFeild(
+            SizedBox(height: 32,),CustomTextFeild(
                   controller: passWordController,
                   valdaitor:  (value){
                     if(value!.isEmpty  || value == null){
@@ -76,7 +76,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
             
             
                 isPass: true,hintText: 'Enter your PassWord',image: 'assets/images/lock.png',),
-            
+            SizedBox(height: 12,),
                 Text('?Forget Password',style: StylesApp.style14BlueBold,),
                 SizedBox(height: 48,),
                 NextButton(text: 'Login', onPressed: (){
@@ -110,7 +110,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                     elevation: 0,
                     backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Row(children: [Text('Login with Google',style: StylesApp.style18Blue500,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
+                      child: Row(children: [Text('Login with Google',style: Theme.of(context).appBarTheme.titleTextStyle,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
                     ))),
               ],),
           ),

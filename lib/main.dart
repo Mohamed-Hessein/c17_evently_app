@@ -4,6 +4,10 @@ import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_m
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/login_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/signup_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/add_event_screen.dart';
+import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/event_details.dart';
+import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/event_edit.dart';
+
+
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/home_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/intoduction_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/lets_start_screen.dart';
@@ -59,14 +63,15 @@ themeMode: provider.themeMode,
        darkTheme: ThemeApp.darkTheme,
       theme: ThemeApp.lightTheme,
       debugShowCheckedModeBanner: false,
-    initialRoute: user.fireaseUser !=null? HomeScreen.routeName : LoginScreen.routeName,
+    initialRoute: user.fireaseUser !=null? LetsStartScreen.routeName : LoginScreen.routeName,
       routes: {
         LetsStartScreen.routeName : (context) => LetsStartScreen(),
         IntoductionScreenLite.routeName :(context) => IntoductionScreenLite(),
         LoginScreen.routeName : (context) => LoginScreen(),
         SignupScreen.routeName :(context) => SignupScreen(),
         HomeScreen.routeName : (context) => HomeScreen(),
-
+        EventDetails.routName : (context) =>EventDetails(),
+        EventEdit.routName : (context)=> EventEdit(),
         AddEventScreen.routeName :(context)=>AddEventScreen(),
     },
 

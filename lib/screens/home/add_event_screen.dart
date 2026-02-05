@@ -46,7 +46,7 @@ List<String> images = ['Sport','Book Club','Birthday','Meeting','Exhibition'];
 
         return Directionality(
          textDirection: TextDirection.ltr,
-          child: Scaffold(appBar: AppBar(centerTitle: true,automaticallyImplyLeading:  false,title: Text('Add event',style:Theme.of(context).textTheme.labelSmall!.copyWith(fontSize: 14,color: Colors.black),),leading: Padding(
+          child: Scaffold(appBar: AppBar(actions: [GestureDetector(child: ImageIcon(AssetImage('assets/images/edit-2.png'),color: AppColors.blueApp,)),SizedBox(width: 5,),Icon(Icons.delete,color: Colors.red,)],centerTitle: true,automaticallyImplyLeading:  false,title: Text('Add event',style:Theme.of(context).textTheme.labelSmall!.copyWith(fontSize: 14,color: Colors.black),),leading: Padding(
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               onTap: (){
@@ -167,7 +167,7 @@ SizedBox(height: 12,),
                         labelText: 'Title',
                         labelStyle: Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 12)
                     ),),
-                    SizedBox(height: 12,),
+                    SizedBox(height: 24,),
                     TextFormField(
                       controller: descController,
                       maxLines: 5,
@@ -189,6 +189,7 @@ filled: true,
                           labelText: 'Description ',
                           labelStyle:Theme.of(context).textTheme.labelMedium!.copyWith()
                       ),),
+                    SizedBox(height: 12,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
