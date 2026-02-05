@@ -35,7 +35,7 @@ bool isCLickTwo = false;
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
           onPressed: (){
-            provider.changTheme(ThemeMode.dark);
+            provider.changTheme(ThemeMode.light);
 
             isCLick  = !isCLick;
             if(isCLick  == isCLickTwo){
@@ -54,7 +54,7 @@ bool isCLickTwo = false;
 
 
 
-            provider.changTheme(ThemeMode.light);
+            provider.changTheme(ThemeMode.dark);
             setState(() {
               isCLickTwo  = !isCLickTwo;    if(isCLick  == isCLickTwo){
                 isCLick =!isCLickTwo;

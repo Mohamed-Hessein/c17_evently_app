@@ -1,5 +1,6 @@
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/core/stylesApp.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 import '../widgets/next_button.dart';
@@ -13,20 +14,22 @@ class IntoductionScreenLite extends StatefulWidget {
 }
 
 class _IntoductionScreenLiteState extends State<IntoductionScreenLite> {
+  late var isDark;
 
   final GlobalKey<IntroductionScreenState> key =
   GlobalKey<IntroductionScreenState>();
   int currentIndex = 0;
-List<PageViewModel> pageList = [
-  PageViewModel(image: Image.asset('assets/images/intro1.png',height: 343,width: 343,),titleWidget: Text('Find Events That Inspire You',style: StylesApp.style20Bold,),bodyWidget: Text('Dive into a world of events crafted to fit your unique interests. Whether youre into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.',style: StylesApp.style16Bold,)),
+late List<PageViewModel> pageList = [
+  PageViewModel(image: Image.asset('assets/images/intro1.png',height: 343,width: 343,),titleWidget: Text('Find Events That Inspire You',style:    Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Dive into a world of events crafted to fit your unique interests. Whether youre into live music, art workshops, professional networking, or simply discovering new experiences, we have something for everyone. Our curated recommendations will help you explore, connect, and make the most of every opportunity around you.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),)),
 
-PageViewModel(image:Image.asset('assets/images/intro2.png',height: 343,width: 343,),titleWidget: Text('Effortless Event Planning',style: StylesApp.style20Bold,),bodyWidget: Text('Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.',style: StylesApp.style16Bold,) )
+PageViewModel(image:Image.asset('assets/images/intro2.png',height: 343,width: 343,),titleWidget: Text('Effortless Event Planning',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Take the hassle out of organizing events with our all-in-one planning tools. From setting up invites and managing RSVPs to scheduling reminders and coordinating details, we’ve got you covered. Plan with ease and focus on what matters – creating an unforgettable experience for you and your guests.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black )) )
 ,
-PageViewModel(image:Image.asset('assets/images/intro3.png',height: 343,width: 343,),titleWidget: Text('Connect with Friends & Share Moments',style: StylesApp.style20Bold,),bodyWidget: Text('Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',style: StylesApp.style16Bold,) )
+PageViewModel(image:Image.asset('assets/images/intro3.png',height: 343,width: 343,),titleWidget: Text('Connect with Friends & Share Moments',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),),bodyWidget: Text('Make every event memorable by sharing the experience with others. Our platform lets you invite friends, keep everyone in the loop, and celebrate moments together. Capture and share the excitement with your network, so you can relive the highlights and cherish the memories.',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),) )
 ];
 
   @override
   Widget build(BuildContext context) {
+     isDark = Theme.of(context).brightness == Brightness.dark;
     return IntroductionScreen(
       onChange: (index){
         setState(() {

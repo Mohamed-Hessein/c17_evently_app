@@ -4,7 +4,9 @@ import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_m
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/widgets/next_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/auth_provider.dart';
 import '../../widgets/custom_text_filed.dart';
 import '../home/home_screen.dart';
 
@@ -14,10 +16,14 @@ static const routeName = 'login';
 TextEditingController emailController = TextEditingController();
 TextEditingController passWordController = TextEditingController();
 GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {   var user = Provider.of<AuthProvider>(context);
+  final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
-      backgroundColor: Colors.white,
+
 
       body: Padding(
       padding: const EdgeInsets.symmetric( horizontal: 17),
@@ -40,7 +46,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
             
               Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Login to your account',style: StylesApp.style24BlueBold,))
+                  child: Text('Login to your account',style: Theme.of(context).textTheme.titleLarge,))
             
             ,
             
@@ -57,7 +63,8 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                   },
             
                   isPass: false,hintText: 'Enter your email',image: 'assets/images/email.png',),
-            SizedBox(height: 16,),CustomTextFeild(          controller: passWordController,
+            SizedBox(height: 16,),CustomTextFeild(
+                  controller: passWordController,
                   valdaitor:  (value){
                     if(value!.isEmpty  || value == null){
             
@@ -77,6 +84,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                     FirebaseFunctions.logIn(emailController.text, passWordController.text, onError: (message){
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message.toString())));
                     }, onSuces: (){
+                      user.init();
                       Navigator.pushNamed(context, HomeScreen.routeName);
                     });
                   }
@@ -100,7 +108,7 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                 child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
             
                     elevation: 0,
-                    backgroundColor: Colors.white), child: Padding(
+                    backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30.0),
                       child: Row(children: [Text('Login with Google',style: StylesApp.style18Blue500,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
                     ))),

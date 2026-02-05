@@ -21,6 +21,7 @@ bool isCLickTwo =  false;
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(title: Image.asset('assets/images/logo_app_bar.png',width: 140,height: 30,),centerTitle: true,),
 
@@ -33,16 +34,16 @@ bool isCLickTwo =  false;
           mainAxisAlignment: MainAxisAlignment.start,
           children: [Image.asset('assets/images/lets_start.png'),
 
-          Text('letsGoTitle',style: StylesApp.style20Bold,textAlign: TextAlign.start,).tr(),
+          Text('letsGoTitle',style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 14,color:isDark? Colors.white: Colors.black ),textAlign: TextAlign.start,).tr(),
 
    SizedBox(height: 8,)
-        ,Text('letsGodesc',style: StylesApp.style16Bold,).tr(),SizedBox(height: 16,)
+        ,Text('letsGodesc',style: Theme.of(context).textTheme.bodyMedium).tr(),SizedBox(height: 16,)
 
            , Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
 
-             Text('language',style: StylesApp.style18BlueBold,).tr(),
+             Text('language',style:  Theme.of(context).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.bold),).tr(),
                 LangButton(title: 'English', secTitle: 'Arabic',),
              ],),
 
@@ -50,7 +51,7 @@ bool isCLickTwo =  false;
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
 
-          Text('Theme',style: StylesApp.style18BlueBold,).tr(),
+          Text('Theme',style:  Theme.of(context).textTheme.labelSmall!.copyWith(fontWeight: FontWeight.bold),).tr(),
             LangAndThemeButton(image: 'assets/images/sun.png',secImage: 'assets/images/moon.png',)
         ],)
 
@@ -64,7 +65,7 @@ bool isCLickTwo =  false;
                , onPressed: (){
                   Navigator.pushNamed(context,IntoductionScreenLite.routeName );
 
-            }, child: Center(child: Text('letsGoBtn', style: StylesApp.style20WhiteBold,).tr())),
+            }, child: Center(child: Text('letsGoBtn', style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white)).tr())),
           )
           ],)),
       ),);
