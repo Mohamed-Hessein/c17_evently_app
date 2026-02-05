@@ -12,7 +12,7 @@ class ThemeApp {
       bodySmall: StylesApp.style14Bold,
       labelMedium: StylesApp.style16BlueBold,displayLarge:StylesApp.style20WhiteBold
       ,
-      titleLarge: StylesApp.style20WhiteBold.copyWith(color: Colors.white),displayMedium: StylesApp.style24BlueBold,
+      titleLarge: StylesApp.style20WhiteBold.copyWith(color: Colors.black),displayMedium: StylesApp.style24BlueBold,
           labelSmall: StylesApp.style18Blue500,
       labelLarge: StylesApp.style14BlueBold),
       iconTheme: IconThemeData(color: Colors.black));

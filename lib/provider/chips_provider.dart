@@ -12,6 +12,7 @@ class ChipsProvider extends ChangeNotifier {
 
   List<FirebaseModel> tasks = [];
   StreamSubscription<QuerySnapshot<FirebaseModel>>? sub ;
+
 int selectedIndex = 0;
   changeChipsClick(int index){
     selectedIndex  = index ;
