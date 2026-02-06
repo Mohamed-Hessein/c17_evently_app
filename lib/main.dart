@@ -63,7 +63,7 @@ themeMode: provider.themeMode,
        darkTheme: ThemeApp.darkTheme,
       theme: ThemeApp.lightTheme,
       debugShowCheckedModeBanner: false,
-    initialRoute: user.fireaseUser !=null? LetsStartScreen.routeName : LoginScreen.routeName,
+    initialRoute: user.fireaseUser !=null? HomeScreen.routeName : LoginScreen.routeName,
       routes: {
         LetsStartScreen.routeName : (context) => LetsStartScreen(),
         IntoductionScreenLite.routeName :(context) => IntoductionScreenLite(),

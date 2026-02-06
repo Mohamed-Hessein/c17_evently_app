@@ -38,7 +38,7 @@ flutter_native_splash:
   # use the [required] background_image in the next section. the reverse is true.
   # select one, they cant work together.
   color: "#F4F7FF"  ##====================================[REQUIRED]==========
-  #color_dark: "#042a49"
+  color_dark: "#000F30"
   # platform-specific color. will override general color if active:
   #color_android: "#42a5f5"
   #color_dark_android: "#042a49"
@@ -65,7 +65,7 @@ flutter_native_splash:
   # png file and should be sized for 4x pixel density.
   image:     assets/images/splash_screen.png
 
-  #image_dark:          assets/splash-invert.png
+  image_dark:          assets/images/Splash (1).png
   # platform-specific image. will override general image if active:
   #image_android:       assets/splash-android.png
   #image_dark_android:  assets/splash-invert-android.png
