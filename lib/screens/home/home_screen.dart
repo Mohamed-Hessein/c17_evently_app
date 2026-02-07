@@ -32,6 +32,7 @@ List<Widget> screens = [EventScreen(),FavScreen(),Profle()];
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
+
 bottomNavigationBar: BottomNavigationBar(
 
 

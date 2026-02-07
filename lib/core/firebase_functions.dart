@@ -6,6 +6,14 @@ import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_m
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseFunctions {
+  static Future<void> resetPassWord(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } catch (e) {
+      throw e;
+    }
+
+  }
  static signUp(String email,String name, String passWord, { required Function onError,required Function onSucess}) async{
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(

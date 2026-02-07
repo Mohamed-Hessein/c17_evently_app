@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import '../../provider/auth_provider.dart';
 import '../../widgets/custom_text_filed.dart';
 import '../home/home_screen.dart';
+import 'forgot_pass_screen.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
@@ -77,7 +78,11 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
             
                 isPass: true,hintText: 'Enter your PassWord',image: 'assets/images/lock.png',),
             SizedBox(height: 12,),
-                Text('?Forget Password',style: StylesApp.style14BlueBold,),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, ForgotPassScreen.routeName,arguments: emailController.text);
+                  },
+                    child: Text('?Forget Password',style: StylesApp.style14BlueBold,)),
                 SizedBox(height: 48,),
                 NextButton(text: 'Login', onPressed: (){
                   if(globalKey.currentState!.validate()){

@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class FavProvider extends ChangeNotifier {
   List<FirebaseModel> tasks =[];
-  getFavTasks (){
+  List<FirebaseModel> filterdList =[];
+  getFavTasks  (){
   FirebaseFunctions.getFavTasks().listen((e){
   tasks =  e.docs.map((e)=> e.data()).toList();
     notifyListeners();
@@ -16,5 +17,16 @@ class FavProvider extends ChangeNotifier {
     var data = await FirebaseFunctions.upDate(task);
 
 
+  }
+
+  search(dynamic q)async{
+    if(filterdList.isEmpty){
+      filterdList = tasks;
+    }
+    filterdList = tasks.where((e){
+      return e.title.contains(q);
+    }).toList();
+
+    notifyListeners();
   }
 }

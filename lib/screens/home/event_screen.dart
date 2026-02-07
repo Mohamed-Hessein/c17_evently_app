@@ -44,7 +44,7 @@ class EventScreen extends StatelessWidget {
                 appBar: AppBar(
 
                   actions: [
-                    ImageIcon(AssetImage('assets/images/sun_ic.png'),
+                    ImageIcon(AssetImage( isDark? 'assets/images/moon.png':'assets/images/sun_ic.png'),
                       color: AppColors.blueApp, size: 24,),
                     SizedBox(width: 8,),
                     ClipRRect(
@@ -182,74 +182,84 @@ class EventScreen extends StatelessWidget {
                                 secondaryBackground: Container(color: Colors.red,child: Icon(Icons.remove),),
                                 key: ValueKey(stremPRovider.tasks[index].id),
 
-                              child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8.0, vertical: 16),
-                                  child: Stack(
-
-                                      children: [
-                                        Image.asset('assets/images/${stremPRovider
-                                            .tasks[index].catgory}.png', width: 343,
-                                          height:
-                                          193,),
-                                        Positioned(
-                                          bottom: 5,
-                                          left: 5,
-                                          child: Container(
-
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(8),
-                                              border:  Border.fromBorderSide(BorderSide(width: 2,color:isDark? Color(0xFF002D8F) : Colors.white, )),
-                                              color: isDark ?   Color(0xFF000F30) : Color(0xFFF4F7FF),),
-                                            width: 335,
-                                            height: 40,
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment
-                                                  .spaceBetween,
-
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                                  child: Text('${stremPRovider.tasks[index]
-                                                      .title}',
-                                                    style: isDark? Theme.of(context).textTheme.labelLarge!
-                                                        .copyWith(color: Colors.white,
-                                                        fontWeight: FontWeight
-                                                            .w500):Theme.of(context).textTheme.labelLarge!
-                                                        .copyWith(color: Colors.black,
-                                                        fontWeight: FontWeight
-                                                            .w500) ,),
-                                                ),
-                                                GestureDetector(
-                                                    onTap: () {
-                                                      var task = provider
-                                                          .tasks[index];
-                                                      task.isFav = !task.isFav;
-                                                      provider.isFav(task);
-                                                    },
-                                                    child: provider.tasks[index]
-                                                        .isFav == true ? Icon(
-                                                        Icons.favorite) : Icon(
-                                                        Icons.favorite_border)),
-                                              ],),
-                                          ),
-                                        ),
-                                        Positioned(
-                                            top: 20,
-                                            left: 20,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8.0, vertical: 16),
+                                    child: Stack(
+                                
+                                        children: [
+                                
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16),
+                                      child: Container(       width: 343,
+                                        height:
+                                        193,
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(16),border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFF002D8F) : Colors.white)),image:DecorationImage(image: AssetImage(  'assets/images/${stremPRovider.tasks[index].catgory}${isDark ? "_dark" : ""}.png',
+                                        ))),
+                                        
+                                      ),
+                                    ),
+                                          Positioned(
+                                            bottom: 5,
+                                            left: 5,
                                             child: Container(
-
-                                              padding: EdgeInsetsDirectional.all(8),
-                                              child: Text('${fromatdate.format(
-                                                  DateTime
-                                                      .fromMillisecondsSinceEpoch(
-                                                      stremPRovider.tasks[index]
-                                                          .date))}',
-                                                style:isDark? Theme.of(context).textTheme.labelLarge : Theme.of(context).textTheme.labelLarge,),
-                                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.fromBorderSide(BorderSide(width: 3,color:!isDark ? Color(0xFFF4F7FF) : Color(0xFF002D8F))), color: !isDark ? Color(0xFFF4F7FF) : Color(0xFF000F30)),))
-                                      ]
+                                
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(8),
+                                                border:  Border.fromBorderSide(BorderSide(width: 2,color:isDark? Color(0xFF002D8F) : Colors.white, )),
+                                                color: isDark ?   Color(0xFF000F30) : Color(0xFFF4F7FF),),
+                                              width: 335,
+                                              height: 40,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment
+                                                    .spaceBetween,
+                                
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                                    child: Text('${stremPRovider.tasks[index]
+                                                        .title}',
+                                                      style: isDark? Theme.of(context).textTheme.labelLarge!
+                                                          .copyWith(color: Colors.white,
+                                                          fontWeight: FontWeight
+                                                              .w500):Theme.of(context).textTheme.labelLarge!
+                                                          .copyWith(color: Colors.black,
+                                                          fontWeight: FontWeight
+                                                              .w500) ,),
+                                                  ),
+                                                  GestureDetector(
+                                                      onTap: () {
+                                                        var task = provider
+                                                            .tasks[index];
+                                                        task.isFav = !task.isFav;
+                                                        provider.isFav(task);
+                                                      },
+                                                      child: provider.tasks[index]
+                                                          .isFav == true ? Icon(
+                                                          Icons.favorite) : Icon(
+                                                          Icons.favorite_border)),
+                                                ],),
+                                            ),
+                                          ),
+                                          Positioned(
+                                              top: 20,
+                                              left: 20,
+                                              child: Container(
+                                
+                                                padding: EdgeInsetsDirectional.all(8),
+                                                child: Text('${fromatdate.format(
+                                                    DateTime
+                                                        .fromMillisecondsSinceEpoch(
+                                                        stremPRovider.tasks[index]
+                                                            .date))}',
+                                                  style:isDark? Theme.of(context).textTheme.labelLarge!.copyWith(color: Color(0xFF457AED)) : Theme.of(context).textTheme.labelLarge,),
+                                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),border: Border.fromBorderSide(BorderSide(width: 3,color:!isDark ? Color(0xFFF4F7FF) : Color(0xFF002D8F))), color: !isDark ? Color(0xFFF4F7FF) : Color(0xFF000F30)),))
+                                        ]
+                                    ),
                                   ),
-                                ),
+                              ),
                               ),
                             );
                           }, separatorBuilder: (context, i) {

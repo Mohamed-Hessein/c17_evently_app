@@ -29,7 +29,11 @@ class _EventEditState extends State<EventEdit> {
   List<String> images = ['Sport','Book Club','Birthday','Meeting','Exhibition'];
   List<String> chipsNames = ['Sport','Book club','Birthday','Meeting','Exhibition'];
   DateTime? selectedDate =DateTime.now();
- late TextEditingController descController ;
+
+  List<String> imagesDark = ['Sport_dark','Book Club_dark','Birthday_dark','Meeting_dark','Exhibition_dark'];
+
+
+  late TextEditingController descController ;
   late TextEditingController titleController ;
 
   @override
@@ -56,7 +60,7 @@ class _EventEditState extends State<EventEdit> {
 
       return Directionality(
         textDirection: TextDirection.ltr,
-        child: Scaffold(appBar: AppBar(actions: [GestureDetector(child: ImageIcon(AssetImage('assets/images/edit-2.png'),color: AppColors.blueApp,)),SizedBox(width: 5,),Icon(Icons.delete,color: Colors.red,)],centerTitle: true,automaticallyImplyLeading:  false,title: Text('Add event',style:Theme.of(context).appBarTheme.titleTextStyle,),leading: Padding(
+        child: Scaffold(appBar: AppBar(centerTitle: true,automaticallyImplyLeading:  false,title: Text('Add event',style:Theme.of(context).appBarTheme.titleTextStyle,),leading: Padding(
           padding: const EdgeInsets.all(10.0),
           child: GestureDetector(
               onTap: (){
@@ -71,8 +75,16 @@ class _EventEditState extends State<EventEdit> {
             child: Column(
 
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [Image.asset('assets/images/${images[provider.selectedIndex]}.png',width: 343,height: 193,fit: BoxFit.cover,),
-                Container(
+              children: [   ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Container(       width: 343,
+                  height:
+                  193,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(16),border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFF002D8F) : Colors.white)),image:DecorationImage(fit: BoxFit.cover,image: AssetImage(  isDark? 'assets/images/${imagesDark[provider.selectedIndex]}.png':  'assets/images/${images[provider.selectedIndex]}.png',
+                  ))),
+
+                ),
+              ),      Container(
                     height: 60,
                     child: ListView.separated(
 

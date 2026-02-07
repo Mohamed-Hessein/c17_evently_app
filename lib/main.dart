@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/provider/auth_provider.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/provider/theme_provider.dart';
+import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/forgot_pass_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/login_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/signup_screen.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/home/add_event_screen.dart';
@@ -73,6 +74,8 @@ themeMode: provider.themeMode,
         EventDetails.routName : (context) =>EventDetails(),
         EventEdit.routName : (context)=> EventEdit(),
         AddEventScreen.routeName :(context)=>AddEventScreen(),
+        ForgotPassScreen.routeName: (context) => ForgotPassScreen(),
+
     },
 
     );

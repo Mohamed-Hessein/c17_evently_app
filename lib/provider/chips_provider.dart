@@ -6,9 +6,9 @@ import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_m
 import 'package:flutter/material.dart';
 
 class ChipsProvider extends ChangeNotifier {
-
+List<dynamic> filterdList =[];
   List<String> images = ['','Sport','Book Club','Birthday','Meeting','Exhibition'];
-  List<String> imagesDark = ['','Sport _dark','Book Club_dark','Birthday_dark','Meeting_dark','Exhibition_dark'];
+  List<String> imagesDark = ['','Sport_dark','Book Club_dark','Birthday_dark','Meeting_dark','Exhibition_dark'];
 
   List<FirebaseModel> tasks = [];
   StreamSubscription<QuerySnapshot<FirebaseModel>>? sub ;
@@ -58,5 +58,14 @@ if(selectedIndex!=0){ data =  await   FirebaseFunctions.getEvents(catgory: image
     await getTasksStram();
     notifyListeners();
   }
-
+search(dynamic q)async{
+  if(filterdList.isEmpty){
+    filterdList = tasks;
+  }
+  filterdList = tasks.where((e){
+    return e.title.contains(q);
+  }).toList();
+  await getTasksStram();
+  notifyListeners();
+}
 }

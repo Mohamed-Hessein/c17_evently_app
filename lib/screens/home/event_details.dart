@@ -49,7 +49,11 @@ class EventDetails extends StatelessWidget {
             ),
           );
 
-        }, child: ImageIcon(AssetImage('assets/images/edit-2.png'),color: AppColors.blueApp,)),SizedBox(width: 5,),Icon(Icons.delete,color: Colors.red,),SizedBox(width: 5,)],centerTitle: true,automaticallyImplyLeading:  false,title: Text(' Event Details',style:Theme.of(context).appBarTheme.titleTextStyle,),leading: Padding(
+        }, child: ImageIcon(AssetImage('assets/images/edit-2.png'),color: AppColors.blueApp,)),SizedBox(width: 5,),GestureDetector(
+            onTap: (){
+              FirebaseFunctions.deleteTask(item);
+              Navigator.pop(context);
+            },child: Icon(Icons.delete,color: Colors.red,)),SizedBox(width: 5,)],centerTitle: true,automaticallyImplyLeading:  false,title: Text(' Event Details',style:Theme.of(context).appBarTheme.titleTextStyle,),leading: Padding(
           padding: const EdgeInsets.all(10.0),
           child: GestureDetector(
               onTap: (){
@@ -64,8 +68,16 @@ class EventDetails extends StatelessWidget {
             child: Column(
 
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [Image.asset('assets/images/${item.catgory}.png',width: 343,height: 193,fit: BoxFit.cover,),
-                SizedBox(height: 12,),
+              children: [   ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Container(       width: 343,
+                  height:
+                  193,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(16),border: Border.fromBorderSide(BorderSide(color: isDark? Color(0xFF002D8F) : Colors.white)),image:DecorationImage(fit: BoxFit.cover,image: AssetImage(  'assets/images/${item.catgory}${isDark ? "_dark" : ""}.png',
+                  ))),
+
+                ),
+              ),           SizedBox(height: 12,),
                 Text('We’re going to play football ',style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18,fontWeight: FontWeight.w500),)
            ,     SizedBox(height: 12,),
 

@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class ThemeApp {
   static final ThemeData lightTheme = ThemeData(
-
+      appBarTheme: AppBarThemeData(titleTextStyle: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.grey)
+      ),
       colorScheme: ColorScheme(brightness: Brightness.light, primary: AppColors.blueApp, onPrimary:  Colors.black, secondary: Colors.black, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFFF4F7FF), onSurface: Colors.white),
 bottomNavigationBarTheme: BottomNavigationBarThemeData(
 
@@ -35,7 +36,7 @@ contentPadding: EdgeInsets.symmetric(vertical: 10),
 
 
   static final ThemeData darkTheme = ThemeData(
-      colorScheme: ColorScheme(brightness: Brightness.dark, primary: AppColors.blueApp, onPrimary:   Colors.white, secondary: Colors.white, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFF000F30), onSurface:  Colors.white ),
+      colorScheme: ColorScheme(brightness: Brightness.dark, primary: AppColors.blueApp, onPrimary:   Colors.white, secondary: Colors.white, onSecondary: AppColors.blueApp, error: Colors.red, onError: Colors.red, surface: Color(0xFF000F30), onSurface:  Color(0xFF002D8F)  ),
 appBarTheme: AppBarThemeData(titleTextStyle: GoogleFonts.poppins(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.white)
   ),
 
