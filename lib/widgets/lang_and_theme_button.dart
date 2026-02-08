@@ -25,14 +25,16 @@ bool isCLickTwo = false;
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     var provider = Provider.of<ThemeProvider>(context);
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [ElevatedButton(
           style: isCLick? ElevatedButton.styleFrom(
-              backgroundColor: AppColors.blueApp,
+              backgroundColor: isDark? Color(0xFF457AED): AppColors.blueApp,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))):ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
+              backgroundColor:isDark? Color(0xFF001440): Colors.white,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
           onPressed: (){
             provider.changTheme(ThemeMode.light);
@@ -46,9 +48,9 @@ bool isCLickTwo = false;
             });
           }, child: isCLick? ImageIcon(AssetImage(widget.image),color: Colors.white,): ImageIcon(AssetImage(widget.image),color: AppColors.blueApp,)) , ElevatedButton(
           style: isCLickTwo? ElevatedButton.styleFrom(
-              backgroundColor: AppColors.blueApp,
+              backgroundColor: isDark? Color(0xFF457AED): AppColors.blueApp,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))):ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
+              backgroundColor:isDark? Color(0xFF001440): Colors.white,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
           onPressed: (){
 
@@ -80,13 +82,15 @@ class _LangButtonState extends State<LangButton> {
   bool isCLickTwo = false;
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Row(
       children: [
         ElevatedButton(
             style: isCLick? ElevatedButton.styleFrom(
-                backgroundColor: AppColors.blueApp,
+                backgroundColor: isDark? Color(0xFF457AED): AppColors.blueApp,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))):ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
+                backgroundColor: isDark? Color(0xFF001440): Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
             onPressed: (){
 
@@ -104,9 +108,9 @@ class _LangButtonState extends State<LangButton> {
 
     ElevatedButton(
     style: isCLickTwo? ElevatedButton.styleFrom(
-    backgroundColor: AppColors.blueApp,
+    backgroundColor: isDark? Color(0xFF457AED): AppColors.blueApp,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))):ElevatedButton.styleFrom(
-    backgroundColor: Colors.white,
+    backgroundColor: isDark? Color(0xFF001440): Colors.white,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
     onPressed: (){
 

@@ -61,7 +61,7 @@ bool isCLickTwo =  false;
             height: 48,
             child: ElevatedButton(
 
-                style: ElevatedButton.styleFrom(backgroundColor: AppColors.blueApp,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)))
+                style: ElevatedButton.styleFrom(backgroundColor: isDark?  Color(0xFF457AED):AppColors.blueApp,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)))
                , onPressed: (){
                   Navigator.pushNamed(context,IntoductionScreenLite.routeName );
 

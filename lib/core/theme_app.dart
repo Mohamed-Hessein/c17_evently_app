@@ -56,7 +56,7 @@ appBarTheme: AppBarThemeData(titleTextStyle: GoogleFonts.poppins(fontSize: 18,fo
 
       fillColor:  Color(0xFF001440),
 
-      enabledBorder:  OutlineInputBorder(borderRadius: BorderRadius.circular(10),borderSide: BorderSide(color: Color(0xff002D8F))),
+      enabledBorder:  OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F))),
 
       border:  OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F)))
   ,  focusedBorder:  OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide: BorderSide(color: Color(0xff002D8F)))
