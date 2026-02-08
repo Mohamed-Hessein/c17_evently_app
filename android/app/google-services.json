@@ -12,7 +12,20 @@
           "package_name": "com.example.eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "550439817361-5sbrbqikmgblrtobeptmbg0876jjh67p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon",
+            "certificate_hash": "5213ada5885002473bb781e8cba169f36a7f83b5"
+          }
+        },
+        {
+          "client_id": "550439817361-qvrpnaku01d8f90mnmnu5lbr4cudmlgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAq3etjtgrM5K84_-2A0MTYidd0tqkEBFA"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550439817361-qvrpnaku01d8f90mnmnu5lbr4cudmlgs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "550439817361-l5trc9a7n9ord5mi8hs8peeurl080b8g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eventleC17MohamedMohamedHessin015529011587To10WedAndMon"
+              }
+            }
+          ]
         }
       }
     }

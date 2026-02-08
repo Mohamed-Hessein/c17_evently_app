@@ -4,6 +4,7 @@ import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_m
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/screens/auth/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/auth_provider.dart';
@@ -36,7 +37,7 @@ var isThemed =false;
             child: Image.asset('assets/images/Profile pic.png',width: 116,height: 116,)),
 
         SizedBox(height: 5,),
-          Text(user.userModel?.name??'',textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodyLarge!.copyWith(),)
+          Text(user.userModel?.name??'' ,textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodyLarge!.copyWith(),)
       ,
           Text(user.userModel?.email??'',textAlign: TextAlign.center,style:  Theme.of(context).textTheme.bodySmall,),
           SizedBox(height: 48,),

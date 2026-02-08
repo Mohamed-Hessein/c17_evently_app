@@ -110,7 +110,10 @@ GlobalKey<FormState> globalKey = GlobalKey<FormState>();
                 Center(child: Text('Or',style: StylesApp.style16BlueBold,)),
             SizedBox(height: 24,),
                 SizedBox(width: 343,height: 48,
-                child: ElevatedButton(onPressed: (){},style: ElevatedButton.styleFrom(
+                child: ElevatedButton(onPressed: (){
+                  FirebaseFunctions.handleSignIn();
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                },style: ElevatedButton.styleFrom(
             
                     elevation: 0,
                     backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(

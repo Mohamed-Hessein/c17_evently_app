@@ -1,11 +1,12 @@
-import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/Models/firebase_model.dart';
 import 'package:eventle_c17_mohamed_mohamed_hessin_01552901158_7_to_10_wed_and_mon/Models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseFunctions {
+
   static Future<void> resetPassWord(String email) async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
@@ -143,5 +144,30 @@ static Future<UserModel?> readUser()async{
  }
  static logOut(){
    FirebaseAuth.instance.signOut();
+
  }
+
+  static Future<User> handleSignIn() async {
+    final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+    final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+    if (googleUser == null) {
+      throw Exception('User cancelled sign in');
+    }
+
+    final GoogleSignInAuthentication googleAuth =
+    await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      idToken: googleAuth.idToken,
+    );
+
+    final UserCredential userCredential =
+    await FirebaseAuth.instance.signInWithCredential(credential);
+
+    final User user = userCredential.user!;
+    print("signed in ${user.displayName}");
+    return user;
+  }
+
+
 }
