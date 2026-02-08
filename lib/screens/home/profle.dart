@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 import '../../provider/auth_provider.dart';
 
 class Profle extends StatelessWidget {
-  const Profle({super.key});
-
+   Profle({super.key});
+var isThemed =false;
   @override
   Widget build(BuildContext context) {final isDark = Theme.of(context).brightness == Brightness.dark;
 
@@ -51,7 +51,28 @@ class Profle extends StatelessWidget {
     height: 48,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20.0,top: 10),
-                child: Text(textAlign: TextAlign.start,'Dark mode',style:  Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(textAlign: TextAlign.start,'Dark mode',style:  Theme.of(context).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),),
+
+
+                 Switch(activeColor: Color(0xFF457AED),
+                     activeTrackColor: isDark? Color(0xFF457AED): Colors.grey,
+                     activeThumbColor: Colors.white,
+                     value: isThemed, onChanged: (value){
+                   isThemed =!isThemed;
+                   value  = isThemed;
+                   if(isThemed ==true){
+                   theme.changTheme(ThemeMode.dark);
+
+                   }else {
+
+                     theme.changTheme(ThemeMode.light);
+                   }
+                 })
+                  ],
+                ),
               ),
             ),
           )

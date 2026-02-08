@@ -4,6 +4,72 @@
   "letsGodesc" : "Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.",
   "language" : "language",
   "Theme": "Theme",
-  "letsGoBtn": "Lets Go"
+  "letsGoBtn": "Lets Go",
+  "lets_start": "Let’s start",
+  "next": "Next",
+  "get_started": "Get started",
+
+  "authentication": "Authentication",
+  "google_login_task": "Google Login Task",
+
+  "forget_password": "Forget Password",
+  "login_to_account": "Login to your account",
+  "create_account": "Create your account",
+
+  "enter_email": "Enter your email",
+  "enter_name": "Enter your name",
+  "enter_password": "Enter your password",
+  "confirm_password": "Confirm your password",
+
+  "forget_password_question": "Forget Password?",
+  "login": "Login",
+  "signup": "Sign up",
+
+  "dont_have_account": "Don’t have an account ? Signup",
+  "already_have_account": "Already have an account? Login",
+
+  "reset_password": "Reset password",
+  "or": "Or",
+
+  "login_with_google": "Login with Google",
+  "signup_with_google": "Sign up with Google",
+
+  "home": "Home",
+  "favorite": "Favorite",
+  "profile": "profile",
+
+  "welcome_back": "Welcome Back ✨",
+  "search_event": "Search for event",
+
+  "all": "All",
+  "sport": "Sport",
+  "birthday": "Birthday",
+
+  "dark_mode": "Dark mode",
+  "logout": "Logout",
+
+  "discover_exhibitions": "Discover unique exhibitions and talents",
+
+  "events": "Events",
+  "add_event": "Add event",
+  "event_details": "Event details",
+  "edit_event": "Edit event",
+
+  "title": "Title",
+  "event_title": "Event Title",
+
+  "description": "Description",
+  "event_description_hint": "Event Description....",
+
+  "event_date": "Event Date",
+  "choose_date": "Choose date",
+
+  "event_time": "Event Time",
+  "choose_time": "Choose time",
+
+  "update_event": "Update event"
+
+
+
 
 }

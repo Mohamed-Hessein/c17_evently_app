@@ -42,7 +42,7 @@ class EventScreen extends StatelessWidget {
           return
             Scaffold(
                 appBar: AppBar(
-
+automaticallyImplyActions: false,
                   actions: [
                     ImageIcon(AssetImage( isDark? 'assets/images/moon.png':'assets/images/sun_ic.png'),
                       color: AppColors.blueApp, size: 24,),
@@ -106,7 +106,7 @@ class EventScreen extends StatelessWidget {
                                    backgroundColor: provider
                                        .selectedIndex == index
 
-                                       ? Color(0xFF002D8F): Color(0xFF001440),
+                                       ? Color(0xFF457AED): Color(0xFF001440),
                                    label: Row(
                                      mainAxisSize: MainAxisSize.min,
                                      children: [
@@ -238,8 +238,9 @@ class EventScreen extends StatelessWidget {
                                                       },
                                                       child: provider.tasks[index]
                                                           .isFav == true ? Icon(
-                                                          Icons.favorite) : Icon(
-                                                          Icons.favorite_border)),
+                                                          Icons.favorite,color: isDark? Color(0xFF457AED):AppColors.blueApp,) : Icon(
+                                                          Icons.favorite_border,color: isDark? Color(0xFF457AED):AppColors.blueApp,
+                                                      )),
                                                 ],),
                                             ),
                                           ),
@@ -275,7 +276,7 @@ class EventScreen extends StatelessWidget {
 ,
                 floatingActionButton: ClipRRect(
             borderRadius: BorderRadius.circular(99),
-          child: FloatingActionButton(onPressed: (){Navigator.pushNamed(context, AddEventScreen.routeName);},backgroundColor: AppColors.blueApp,child: Icon(Icons.add,color: Colors.white,),)),);
+          child: FloatingActionButton(onPressed: (){Navigator.pushNamed(context, AddEventScreen.routeName);},backgroundColor:isDark? Color(0xFF457AED):AppColors.blueApp,child: Icon(Icons.add,color: Colors.white,),)),);
 
 
         }

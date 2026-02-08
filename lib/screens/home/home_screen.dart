@@ -43,7 +43,7 @@ bottomNavigationBar: BottomNavigationBar(
 
     });
   },
-  selectedIconTheme:IconThemeData(color: AppColors.blueApp) ,
+  selectedIconTheme:IconThemeData(color:isDark? Color(0xFF457AED):Color(0xFF0E3A99),) ,
 selectedLabelStyle:  TextStyle(fontSize: 12,color: AppColors.blueApp),
   currentIndex:selectedIndex ,
   items: [

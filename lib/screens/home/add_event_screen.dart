@@ -96,7 +96,7 @@ List<String> images = ['Sport','Book Club','Birthday','Meeting','Exhibition'];
                                     backgroundColor: provider
                                         .selectedIndex == index
 
-                                        ? Color(0xFF002D8F): Color(0xFF001440),
+                                        ? Color(0xFF457AED): Color(0xFF001440),
                                     label: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
@@ -219,7 +219,7 @@ List<String> images = ['Sport','Book Club','Birthday','Meeting','Exhibition'];
                             onTap: (){
                               ChooseDate();
                             },
-                            child: Text('${selectedDate.toString().substring(0,10)}',style: Theme.of(context).textTheme.labelLarge!.copyWith(color: AppColors.blueApp,fontSize: 16,fontWeight: FontWeight.bold)))],),
+                            child: Text('${selectedDate.toString().substring(0,10)}',style: Theme.of(context).textTheme.labelLarge!.copyWith(color: isDark? Color(0xFF457AED):Color(0xFF0E3A99),fontSize: 16,fontWeight: FontWeight.bold)))],),
 
 
                      SizedBox(height: 50,),

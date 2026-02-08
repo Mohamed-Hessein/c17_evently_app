@@ -3,5 +3,69 @@
   "letsGodesc": "اختر اللغة والمظهر المفضلين لديك لتبدأ تجربة مريحة ومصممة خصيصاً لتناسب أسلوبك.",
   "language": "اللغة",
   "Theme": "المظهر",
-  "letsGoBtn": "لنبدأ"
+  "letsGoBtn": "لنبدأ",
+  "lets_start": "لنبدأ",
+  "next": "التالي",
+  "get_started": "ابدأ",
+
+  "authentication": "تسجيل الدخول",
+  "google_login_task": "تسجيل الدخول باستخدام جوجل",
+
+  "forget_password": "نسيت كلمة المرور",
+  "login_to_account": "تسجيل الدخول إلى حسابك",
+  "create_account": "إنشاء حساب",
+
+  "enter_email": "أدخل البريد الإلكتروني",
+  "enter_name": "أدخل الاسم",
+  "enter_password": "أدخل كلمة المرور",
+  "confirm_password": "تأكيد كلمة المرور",
+
+  "forget_password_question": "هل نسيت كلمة المرور؟",
+  "login": "تسجيل الدخول",
+  "signup": "إنشاء حساب",
+
+  "dont_have_account": "ليس لديك حساب؟ سجل الآن",
+  "already_have_account": "لديك حساب بالفعل؟ سجل الدخول",
+
+  "reset_password": "إعادة تعيين كلمة المرور",
+  "or": "أو",
+
+  "login_with_google": "تسجيل الدخول بجوجل",
+  "signup_with_google": "إنشاء حساب بجوجل",
+
+  "home": "الرئيسية",
+  "favorite": "المفضلة",
+  "profile": "الملف الشخصي",
+
+  "welcome_back": "مرحبًا بعودتك ✨",
+  "search_event": "ابحث عن فعالية",
+
+  "all": "الكل",
+  "sport": "رياضة",
+  "birthday": "عيد ميلاد",
+
+  "dark_mode": "الوضع الداكن",
+  "logout": "تسجيل الخروج",
+
+  "discover_exhibitions": "اكتشف معارض ومواهب مميزة",
+
+  "events": "الفعاليات",
+  "add_event": "إضافة فعالية",
+  "event_details": "تفاصيل الفعالية",
+  "edit_event": "تعديل الفعالية",
+
+  "title": "العنوان",
+  "event_title": "عنوان الفعالية",
+
+  "description": "الوصف",
+  "event_description_hint": "وصف الفعالية...",
+
+  "event_date": "تاريخ الفعالية",
+  "choose_date": "اختر التاريخ",
+
+  "event_time": "وقت الفعالية",
+  "choose_time": "اختر الوقت",
+
+  "update_event": "تحديث الفعالية"
+
 }
