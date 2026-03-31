@@ -8,124 +8,192 @@ import '../../widgets/custom_text_filed.dart';
 import '../../widgets/next_button.dart';
 import '../home/home_screen.dart';
 
-class SignupScreen extends StatelessWidget {
-   SignupScreen({super.key});
-static const routeName = 'signup';
-GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-TextEditingController emailController = TextEditingController();
+class SignupScreen extends StatefulWidget {
+  SignupScreen({super.key});
+  static const routeName = 'signup';
 
-   TextEditingController passWordController = TextEditingController();
-   TextEditingController nameController = TextEditingController();
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
 
+class _SignupScreenState extends State<SignupScreen> {
+  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passWordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-
-
       body: Padding(
-        padding: const EdgeInsets.symmetric( horizontal: 17),
+        padding: const EdgeInsets.symmetric(horizontal: 17),
         child: SafeArea(
-          child: Form(key: globalKey,
+          child: Form(
+            key: globalKey,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-              
                 children: [
-                  SizedBox(height: 16,),
+                  SizedBox(height: 16),
                   Align(
                       alignment: Alignment.topCenter,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Image.asset('assets/images/logo_app_bar.png',width: 142,height: 27,),
+                        child: Image.asset(
+                          'assets/images/logo_app_bar.png',
+                          width: 142,
+                          height: 27,
+                        ),
                       )),
-                  SizedBox(height: 42,),
-              
+                  SizedBox(height: 42),
                   Align(
                       alignment: Alignment.centerLeft,
-                      child: Text('Create your account',style: Theme.of(context).textTheme.titleLarge,))
-              
-                  ,
-              
-                  SizedBox(height: 24,),
-              CustomTextFeild(isPass: false,hintText: 'Enter your Name',image: 'assets/images/user.png',controller: nameController,valdaitor: (value){
-                if(value!.isEmpty  || value == null){
-              
-                  return 'enter vaild email';
-                }
-              
-              },),    SizedBox(height: 16,)
-                  , CustomTextFeild(valdaitor: (value){
-                  if(value!.isEmpty  || value == null){
-              
-                    return 'enter vaild email';
-                  }
-              
-              
-                  },isPass: false,hintText: 'Enter your email',image: 'assets/images/email.png',controller: emailController,),
-                  SizedBox(height: 16,),CustomTextFeild(valdaitor: (value){
-                    if(value!.isEmpty  || value == null){
-              
-                      return 'enter vaild email';
-                    }
-              
-              
-                  },isPass: true,hintText: 'Enter your PassWord',image: 'assets/images/lock.png',controller: passWordController,),
-                 SizedBox(height: 16,), CustomTextFeild(
-
-                    valdaitor: (value){
-                      if(value!.isEmpty  || value == null){
-              
+                      child: Text(
+                        'Create your account',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      )),
+                  SizedBox(height: 24),
+                  CustomTextFeild(
+                    isPass: false,
+                    hintText: 'Enter your Name',
+                    image: 'assets/images/user.png',
+                    controller: nameController,
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'enter vaild name';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextFeild(
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
                         return 'enter vaild email';
                       }
-              
-              
-                    }
-                  ,isPass: true,hintText: 'Confirm your password',image: 'assets/images/lock.png',controller: passWordController,),
-              
-                  SizedBox(height: 48,),
-                  NextButton(text: 'Sign Up', onPressed: (){
-              
-                    if(globalKey.currentState!.validate()){
-                      FirebaseFunctions.signUp(emailController.text,nameController.text.trim(), passWordController.text, onError: (massge){
-              
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(massge.toString())));
-                      }, onSucess: (){
-                        Navigator.pushNamed(context, LoginScreen.routeName);
-                      });
-                    }
-              
-                  }),
-                  SizedBox(height: 48,),
+                      return null;
+                    },
+                    isPass: false,
+                    hintText: 'Enter your email',
+                    image: 'assets/images/email.png',
+                    controller: emailController,
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextFeild(
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'enter vaild password';
+                      }
+                      return null;
+                    },
+                    isPass: true,
+                    hintText: 'Enter your PassWord',
+                    image: 'assets/images/lock.png',
+                    controller: passWordController,
+                  ),
+                  SizedBox(height: 16),
+                  CustomTextFeild(
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'confirm your password';
+                      }
+                      if (value != passWordController.text) {
+                        return 'passwords do not match';
+                      }
+                      return null;
+                    },
+                    isPass: true,
+                    hintText: 'Confirm your password',
+                    image: 'assets/images/lock.png',
+                    controller: passWordController,
+                  ),
+                  SizedBox(height: 48),
+                  NextButton(
+                      text: isLoading ? 'Loading...' : 'Sign Up',
+                      onPressed: isLoading
+                          ? () {}
+                          : () {
+                        if (globalKey.currentState!.validate()) {
+                          setState(() {
+                            isLoading = true;
+                          });
+                          FirebaseFunctions.signUp(
+                              emailController.text,
+                              nameController.text.trim(),
+                              passWordController.text, onError: (message) {
+                            setState(() {
+                              isLoading = false;
+                            });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    backgroundColor: Colors.red,
+                                    content: Text(message.toString())));
+                          }, onSucess: () {
+                            setState(() {
+                              isLoading = false;
+                            });
+                            Navigator.pushNamed(
+                                context, LoginScreen.routeName);
+                          });
+                        }
+                      }),
+                  SizedBox(height: 48),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [       GestureDetector(
-                        onTap: (){
-                          Navigator.pushNamed(context, LoginScreen.routeName);
-                        },
-                        child: Text(' login ',style: StylesApp.style14BlueBold,)) ,Text('? Don’t have an account ',style: StylesApp.style14Bold,),
-              
-              
-                    ],),
-                  SizedBox(height: 32,),
-                  Center(child: Text('Or',style: StylesApp.style16BlueBold,)),
-                  SizedBox(height: 24,),
-                  SizedBox(width: 343,height: 48,
-                      child: ElevatedButton(onPressed: (){
-                        FirebaseFunctions.handleSignIn();
-                        Navigator.pushNamed(context, HomeScreen.routeName);
-                      },style: ElevatedButton.styleFrom(
-              
-                          elevation: 0,
-                          backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                        child: Row(children: [Text('Login with Google',style: Theme.of(context).appBarTheme.titleTextStyle,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
-                      ))),
-                ],),
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, LoginScreen.routeName);
+                          },
+                          child: Text(' login ',
+                              style: StylesApp.style14BlueBold)),
+                      Text('? Already have an account ',
+                          style: StylesApp.style14Bold),
+                    ],
+                  ),
+                  SizedBox(height: 32),
+                  Center(child: Text('Or', style: StylesApp.style16BlueBold)),
+                  SizedBox(height: 24),
+                  SizedBox(
+                      width: 343,
+                      height: 48,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            FirebaseFunctions.handleSignIn();
+                            Navigator.pushNamed(context, HomeScreen.routeName);
+                          },
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: isDark
+                                  ? const Color(0xFF002D8F)
+                                  : Colors.white),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Login with Google',
+                                  style: Theme.of(context)
+                                      .appBarTheme
+                                      .titleTextStyle,
+                                ),
+                                const SizedBox(width: 15),
+                                Image.asset(
+                                  'assets/images/google.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ],
+                            ),
+                          ))),
+                ],
+              ),
             ),
           ),
         ),
-      ),);
+      ),
+    );
   }
 }

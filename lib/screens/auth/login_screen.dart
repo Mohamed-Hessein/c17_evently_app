@@ -11,119 +11,172 @@ import '../../widgets/custom_text_filed.dart';
 import '../home/home_screen.dart';
 import 'forgot_pass_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
-static const routeName = 'login';
-TextEditingController emailController = TextEditingController();
-TextEditingController passWordController = TextEditingController();
-GlobalKey<FormState> globalKey = GlobalKey<FormState>();
-
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+  static const routeName = 'login';
 
   @override
-  Widget build(BuildContext context) {   var user = Provider.of<AuthProvider>(context);
-  final isDark = Theme.of(context).brightness == Brightness.dark;
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passWordController = TextEditingController();
+  GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+  bool isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    var user = Provider.of<AuthProvider>(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-
-
       body: Padding(
-      padding: const EdgeInsets.symmetric( horizontal: 17),
-      child: SafeArea(
-        child: Form(
-          key: globalKey,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-            
-              children: [
-                SizedBox(height: 16,),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('assets/images/logo_app_bar.png',width: 142,height: 27,),
-                  )),
-            SizedBox(height: 42,),
-            
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text('Login to your account',style: Theme.of(context).textTheme.titleLarge,))
-            
-            ,
-            
-              SizedBox(height: 24,)
-              , CustomTextFeild(
-                  controller: emailController,
-                  valdaitor:  (value){
-                  if(value!.isEmpty || value == null){
-            
-                  return 'enter vaild email';
-                  }
-            
-            
-                  },
-            
-                  isPass: false,hintText: 'Enter your email',image: 'assets/images/email.png',),
-            SizedBox(height: 32,),CustomTextFeild(
-                  controller: passWordController,
-                  valdaitor:  (value){
-                    if(value!.isEmpty  || value == null){
-            
-                      return 'enter vaild email';
-                    }
-            
-            
-                  },
-            
-            
-                isPass: true,hintText: 'Enter your PassWord',image: 'assets/images/lock.png',),
-            SizedBox(height: 12,),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context, ForgotPassScreen.routeName,arguments: emailController.text);
-                  },
-                    child: Text('?Forget Password',style: StylesApp.style14BlueBold,)),
-                SizedBox(height: 48,),
-                NextButton(text: 'Login', onPressed: (){
-                  if(globalKey.currentState!.validate()){
-                    FirebaseFunctions.logIn(emailController.text, passWordController.text, onError: (message){
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(message.toString())));
-                    }, onSuces: (){
-                      user.init();
-                      Navigator.pushNamed(context, HomeScreen.routeName);
-                    });
-                  }
-            
-            
-                }),
-                SizedBox(height: 48,),
-                Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-                  children: [       GestureDetector(onTap: (){
-                    Navigator.pushNamed(context, SignupScreen.routeName);
-                  },
-                      child: Text(' Signup ',style: StylesApp.style14BlueBold,)) ,Text('? Don’t have an account ',style: StylesApp.style14Bold,),
-            
-            
-                  ],),
-                SizedBox(height: 32,),
-                Center(child: Text('Or',style: StylesApp.style16BlueBold,)),
-            SizedBox(height: 24,),
-                SizedBox(width: 343,height: 48,
-                child: ElevatedButton(onPressed: (){
-                  FirebaseFunctions.handleSignIn();
-                  Navigator.pushNamed(context, HomeScreen.routeName);
-                },style: ElevatedButton.styleFrom(
-            
-                    elevation: 0,
-                    backgroundColor:isDark?  Color(0xFF002D8F):Colors.white), child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Row(children: [Text('Login with Google',style: Theme.of(context).appBarTheme.titleTextStyle,),SizedBox(width: 15,), Image.asset('assets/images/google.png',width: 24,height: 24,),],),
-                    ))),
-              ],),
+        padding: const EdgeInsets.symmetric(horizontal: 17),
+        child: SafeArea(
+          child: Form(
+            key: globalKey,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: 16),
+                  Align(
+                      alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          'assets/images/logo_app_bar.png',
+                          width: 142,
+                          height: 27,
+                        ),
+                      )),
+                  SizedBox(height: 42),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Login to your account',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      )),
+                  SizedBox(height: 24),
+                  CustomTextFeild(
+                    controller: emailController,
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'enter vaild email';
+                      }
+                      return null;
+                    },
+                    isPass: false,
+                    hintText: 'Enter your email',
+                    image: 'assets/images/email.png',
+                  ),
+                  SizedBox(height: 32),
+                  CustomTextFeild(
+                    controller: passWordController,
+                    valdaitor: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'enter vaild password';
+                      }
+                      return null;
+                    },
+                    isPass: true,
+                    hintText: 'Enter your PassWord',
+                    image: 'assets/images/lock.png',
+                  ),
+                  SizedBox(height: 12),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, ForgotPassScreen.routeName,
+                            arguments: emailController.text);
+                      },
+                      child: Text('?Forget Password',
+                          style: StylesApp.style14BlueBold)),
+                  SizedBox(height: 48),
+                  NextButton(
+                      text: isLoading ? '....loading' : 'Login',
+                      onPressed: isLoading
+                          ? () {}
+                          : () {
+                        if (globalKey.currentState!.validate()) {
+                          setState(() {
+                            isLoading = true;
+                          });
+                          FirebaseFunctions.logIn(
+                              emailController.text, passWordController.text,
+                              onError: (message) {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        backgroundColor: Colors.red,
+                                        content: Text(message.toString())));
+                              }, onSuces: () {
+                            setState(() {
+                              isLoading = false;
+                            });
+                            user.init();
+                            Navigator.pushNamed(
+                                context, HomeScreen.routeName);
+                          });
+                        }
+                      }),
+                  SizedBox(height: 48),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, SignupScreen.routeName);
+                          },
+                          child: Text(' Signup ',
+                              style: StylesApp.style14BlueBold)),
+                      Text('? Don’t have an account ',
+                          style: StylesApp.style14Bold),
+                    ],
+                  ),
+                  SizedBox(height: 32),
+                  Center(child: Text('Or', style: StylesApp.style16BlueBold)),
+                  SizedBox(height: 24),
+                  SizedBox(
+                      width: 343,
+                      height: 48,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            FirebaseFunctions.handleSignIn();
+                            Navigator.pushNamed(context, HomeScreen.routeName);
+                          },
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: isDark
+                                  ? const Color(0xFF002D8F)
+                                  : Colors.white),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Login with Google',
+                                  style: Theme.of(context)
+                                      .appBarTheme
+                                      .titleTextStyle,
+                                ),
+                                const SizedBox(width: 15),
+                                Image.asset(
+                                  'assets/images/google.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ],
+                            ),
+                          ))),
+                ],
+              ),
+            ),
           ),
         ),
       ),
-    ),);
+    );
   }
 }
